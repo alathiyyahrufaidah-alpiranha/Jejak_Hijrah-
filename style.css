@@ -1,0 +1,707 @@
+/* ==========================================================================
+   CSS VARIABLES (Bagian Utama yang Bisa Diganti Warna-warnanya oleh Mahasiswa)
+   ========================================================================== */
+:root {
+    --warna-primary: #B8860B;          /* Warna utama website */
+    --warna-secondary: #2A9D8F;        /* Warna sekunder */
+    --warna-accent: #E9C46A;           /* Warna aksen mencolok */
+    --warna-bg-utama: #FDFBF7;         /* Warna background halaman dasar */
+    --warna-bg-card: #FFFFFF;          /* Warna background untuk box/card */
+    --warna-bg-light: #F4EFE6;         /* Warna background section selingan */
+    --warna-teks-utama: #333333;       /* Warna teks judul/utama */
+    --warna-teks-sekunder: #666666;    /* Warna teks paragraf/keterangan */
+    --max-width: 1140px;               /* Batas lebar konten desktop */
+    --transisi: all 0.3s ease;         /* Efek animasi halus saat hover */
+}
+
+/* ==========================================================================
+   RESET & DASAR HALAMAN
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Efek scroll halus bawaan CSS alternatif JS */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--warna-bg-utama);
+    color: var(--warna-teks-utama);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--warna-bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--warna-teks-utama);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--warna-primary);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--warna-teks-sekunder);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Image fallback styling */
+.img-fallback {
+    background-color: #e0e0e0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #888888;
+    padding: 20px;
+    font-style: italic;
+    border: 2px dashed #cccccc;
+}
+
+/* ==========================================================================
+   TOMBOL Sederhana
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transisi);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--warna-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #966F0A; /* Warna primary agak gelap saat di-hover */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--warna-secondary);
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #1F766C;
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background-color: var(--warna-accent);
+    color: #333333;
+}
+
+.btn-accent:hover {
+    background-color: #D3B056;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   NAVBAR (Menu Navigasi)
+   ========================================================================== */
+.navbar {
+    background-color: var(--warna-bg-card);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--warna-primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    color: var(--warna-teks-utama);
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: var(--transisi);
+}
+
+.nav-item:hover {
+    color: var(--warna-primary);
+}
+
+/* Hamburger Menu Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--warna-teks-utama);
+    margin: 4px 0;
+    transition: var(--transisi);
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    padding-top: 140px; /* Jarak agar tidak tertutup navbar fixed */
+    background-color: var(--warna-bg-card);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 1.5rem;
+    color: var(--warna-secondary);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero-text h2 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: var(--warna-teks-utama);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--warna-teks-sekunder);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ==========================================================================
+   2. MASALAH SECTION
+   ========================================================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--warna-bg-card);
+    padding: 35px 25px;
+    border-radius: 10px;
+    transition: var(--transisi);
+    border-bottom: 4px solid transparent;
+}
+
+.shadow-cards .card {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+
+.shadow-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-bottom-color: var(--warna-secondary);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--warna-teks-utama);
+}
+
+.card p {
+    color: var(--warna-teks-sekunder);
+    font-size: 0.95rem;
+}
+
+.target-box {
+    background-color: var(--warna-bg-card);
+    padding: 20px;
+    border-left: 5px solid var(--warna-primary);
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+/* ==========================================================================
+   3. SOLUSI SECTION
+   ========================================================================== */
+.solusi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.solusi-image img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.solusi-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.solusi-text p {
+    color: var(--warna-teks-sekunder);
+    margin-bottom: 25px;
+}
+
+.manfaat-list {
+    list-style: none;
+}
+
+.manfaat-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+    color: var(--warna-teks-sekunder);
+}
+
+.manfaat-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--warna-secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. FITUR UTAMA SECTION
+   ========================================================================== */
+.fitur-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-fitur {
+    border-left: 4px solid var(--warna-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.card-fitur:hover {
+    background-color: #fffdf9;
+    transform: scale(1.01);
+}
+
+/* ==========================================================================
+   5. AKSES PRODUK SECTION
+   ========================================================================== */
+.akses-section {
+    background-color: var(--warna-primary);
+    color: #ffffff;
+    text-align: center;
+}
+
+.akses-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.akses-box p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+.akses-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   6. TIM SECTION
+   ========================================================================== */
+.tim-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk 5 anggota */
+    gap: 20px;
+}
+
+.tim-card {
+    background-color: var(--warna-bg-card);
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: var(--transisi);
+}
+
+.tim-card:hover {
+    transform: translateY(-5px);
+}
+
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--warna-bg-light);
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tim-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+    color: var(--warna-teks-utama);
+}
+
+.tim-card .peran {
+    font-size: 0.85rem;
+    color: var(--warna-secondary);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   7. FOOTER SECTION
+   ========================================================================== */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px 0 20px 0;
+    text-align: center;
+}
+
+.footer h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--warna-accent);
+}
+
+.footer p {
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.footer .footer-tagline {
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.6;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   STRUKTUR KHUSUS UNTUK HALAMAN LMS (belajar.html)
+   ========================================================================== */
+.lms-body {
+    padding-top: 75px; /* Sesuaikan dengan navbar */
+}
+
+.lms-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar kiri tetap 300px, isi di kanan fleksibel */
+    min-height: calc(100vh - 75px);
+}
+
+/* Sidebar Menu LMS */
+.lms-sidebar {
+    background-color: var(--warna-bg-card);
+    border-right: 1px solid var(--warna-bg-light);
+    padding: 25px;
+    position: sticky;
+    top: 75px;
+    height: calc(100vh - 75px);
+    overflow-y: auto;
+}
+
+.lms-sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--warna-primary);
+    border-bottom: 2px solid var(--warna-bg-light);
+    padding-bottom: 8px;
+}
+
+.menu-bab {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.bab-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--warna-teks-utama);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sub-menu {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.sub-menu li a {
+    display: block;
+    padding: 6px 0;
+    color: var(--warna-teks-sekunder);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transisi);
+}
+
+.sub-menu li a:hover, .sub-menu li a.active {
+    color: var(--warna-secondary);
+    font-weight: 500;
+}
+
+/* Area Konten Utama LMS */
+.lms-content {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.content-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--warna-bg-light);
+    padding-bottom: 15px;
+}
+
+.content-header h1 {
+    font-size: 2.2rem;
+    color: var(--warna-teks-utama);
+}
+
+.content-header .desc {
+    color: var(--warna-teks-sekunder);
+    font-size: 1.1rem;
+}
+
+.materi-box {
+    margin-bottom: 35px;
+}
+
+.materi-box h2 {
+    font-size: 1.5rem;
+    color: var(--warna-primary);
+    margin-bottom: 15px;
+}
+
+.materi-box p {
+    color: var(--warna-teks-utama);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.materi-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Desain Responsif untuk Embed Video / Iframe Youtube */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio Aspek 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tampilan Mobile & Tablet)
+   ========================================================================== */
+
+/* Animasi untuk Scroll (Diaktifkan via JS) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .tim-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Navbar Mobile */
+    .menu-toggle {
+        display: flex; /* Munculkan hamburger di mobile */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: -110%;
+        flex-direction: column;
+        background-color: var(--warna-bg-card);
+        width: 100%;
+        text-align: center;
+        transition: var(--transisi);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0; /* Menampilkan menu saat aktif */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Mengubah Grid 2 Kolom jadi 1 Kolom */
+    .hero-grid, .solusi-grid, .fitur-grid, .card-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .tim-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP portrait */
+    }
+    
+    /* LMS Mobile Layout */
+    .lms-layout {
+        grid-template-columns: 1fr; /* Menumpuk sidebar ke atas */
+    }
+    
+    .lms-sidebar {
+        position: relative;
+        top: 0;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--warna-bg-light);
+    }
+    
+    .lms-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tim-grid {
+        grid-template-columns: 1fr; /* 1 kolom penuh di HP kecil */
+    }
+}
